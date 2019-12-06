@@ -8,11 +8,14 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-mongoose.connect("mongodb+srv://Charith:K7ulBusW5xqve3y0@cluster0-ow00d.mongodb.net/BudgetDB", {useNewUrlParser: true,  useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://Charith:K7ulBusW5xqve3y0@cluster0-ow00d.mongodb.net/BudgetDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => {
         console.log('connection Successful');
     }).catch(() => {
-        console.log('connection failed');
+    console.log('connection failed');
 });
 
 app.use((req, res, next) => {
@@ -58,6 +61,24 @@ app.get('/products', (req, res, next) => {
     res.status(200).json({
         message: 'success',
         products: product
+    });
+});
+
+app.post('/products', (req, res, next) => {
+    const product = new Product({
+        name: req.body.name,
+        price: req.body.price,
+        category: req.body.category,
+        condition: req.body.condition
+    });
+    product.save().then(() => {
+        res.status(200).json({
+            message: 'success'
+        })
+    }).catch(() => {
+        res.status(500).json({
+            message: 'failed'
+        })
     });
 });
 
