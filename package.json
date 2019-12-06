@@ -1,0 +1,16 @@
+{
+  "name": "ecom-app-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "start-server": "nodemon server.js"
+  },
+  "dependencies": {
+    "debug": "latest",
+    "express": "latest",
+    "mongoose": "^5.7.13",
+    "body-parser": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
