@@ -4,11 +4,13 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const Product = require('./models/products');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/images', express.static(path.join('images')));
 
 const MIME_TYPE_MAP = {
     'image/png': 'png',
