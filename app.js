@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const productsRouter = require('./routes/products');
+const userRouter = require('./routes/users');
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,5 +23,6 @@ mongoose.connect("mongodb+srv://Charith:K7ulBusW5xqve3y0@cluster0-ow00d.mongodb.
 app.use('/images', express.static(path.join('images')));
 
 app.use('/products', productsRouter);
+app.use('/user', userRouter);
 
 module.exports = app;

@@ -6,11 +6,13 @@
   },
   "dependencies": {
     "@types/express": "^4.17.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "latest",
     "cors": "^2.8.5",
     "debug": "latest",
     "express": "latest",
     "mongoose": "^5.7.13",
+    "mongoose-unique-validator": "^2.0.3",
     "multer": "^1.4.2"
   },
   "devDependencies": {
